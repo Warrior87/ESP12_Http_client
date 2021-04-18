@@ -8,6 +8,8 @@ void setup() {
   delay(10);                     //Baud rate prper initialization
   pinMode(13,INPUT);             //Pin D7 on NodeMcu Lua. Button to switch on and off the solenoid.
   WiFi.mode(WIFI_STA);           //NodeMcu esp12E in station mode
+  WiFi.setOutputPower(82);       //set output power to max
+  WiFi.setPhyMode(WIFI_PHY_MODE_11B); //set phy mode to B, lowest data rate, highest current consumption & range
   WiFi.begin("ESP_D54736");      //Connect to this SSID. In our case esp-01 SSID.  
 
   while (WiFi.status() != WL_CONNECTED) {      //Wait for getting IP assigned by Access Point/ DHCP. 
